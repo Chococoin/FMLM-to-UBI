@@ -1,0 +1,9 @@
+{
+  "name": "@fmlm/web3-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Componentes React (wagmi) para integrarse como islas en Astro",
+  "dependencies": {},
+  "devDependencies": {}
+}

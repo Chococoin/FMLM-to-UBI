@@ -1,0 +1,10 @@
+{
+  "name": "web-astro",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Instala Astro y corre pnpm astro dev'",
+    "build": "echo 'Instala Astro y corre pnpm astro build'",
+    "lint": "echo 'Configura ESLint/Prettier'"
+  }
+}
