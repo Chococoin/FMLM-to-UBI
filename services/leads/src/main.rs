@@ -2,6 +2,7 @@ use axum::{extract::State, routing::{get, post}, Json, Router};
 use mongodb::{bson::{doc, DateTime}, options::ClientOptions, Client};
 use serde::Deserialize;
 use std::net::SocketAddr;
+use tokio::net::TcpListener;
 use telemetry::init_tracing;
 
 #[derive(Clone)]
@@ -25,8 +26,9 @@ async fn main() -> anyhow::Result<()> {
         .with_state(state);
 
     let addr = SocketAddr::from(([0,0,0,0], 8090));
-    tracing::info!("Leads listening on http://{addr}");
-    axum::Server::bind(&addr).serve(app.into_make_service()).await?;
+    let listener = TcpListener::bind(addr).await?;
+    tracing::info!("Leads listening on http://{}", listener.local_addr()?);
+    axum::serve(listener, app).await?;
     Ok(())
 }
 
