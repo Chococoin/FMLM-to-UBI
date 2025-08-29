@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct FMLMUBIApp: App {
     @StateObject private var coordinator = OnboardingCoordinator()
-    @StateObject private var viewModel = OnboardingViewModel(auth: MockAuthService())
+    @StateObject private var viewModel = OnboardingViewModel(auth: RealAuthService())
 
     var body: some Scene {
         WindowGroup {
